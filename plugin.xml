@@ -39,13 +39,10 @@
         <clobbers target="baidumap_location"/>
     </js-module>
 
-    <preference name="ANDROID_KEY" default=""/>
-    <preference name="IOS_KEY" default=""/>
-    <preference name="IOS_LOCATION_DESC" default="获取用户当前位置"/>
-    <preference name="IOS_ALWAYS_LOCATION_DESC" default="持续获取地理位置"/>
-
     <!-- android -->
     <platform name="android">
+	    <preference name="ANDROID_KEY"/>
+
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="BaiduMapLocation">
                 <param name="android-package" value="com.aruistar.cordova.baidumap.BaiduMapLocation"/>
@@ -101,6 +98,8 @@
 
     <!--ios-->
     <platform name="ios">
+	    <preference name="IOS_KEY"/>
+
         <config-file parent="/*" target="config.xml">
             <feature name="BaiduMapLocation">
                 <param name="ios-package" value="BaiduMapLocation"/>
@@ -117,9 +116,11 @@
 
         <!--定位模式 TODO 设置为前后台永远定位-->
         <!--NSLocationAlwaysUsageDescription / NSLocationWhenInUseUsageDescription-->
+		<preference name="IOS_LOCATION_DESC" default="获取用户当前位置"/>
         <config-file parent="NSLocationWhenInUseUsageDescription" target="*-Info.plist">
             <string>$IOS_LOCATION_DESC</string>
         </config-file>
+		<preference name="IOS_ALWAYS_LOCATION_DESC" default="持续获取地理位置"/>
         <config-file parent="NSLocationAlwaysUsageDescription" target="*-Info.plist">
             <string>$IOS_ALWAYS_LOCATION_DESC</string>
         </config-file>
