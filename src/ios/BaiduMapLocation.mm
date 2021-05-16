@@ -66,6 +66,10 @@
                 NSString* locationDescribe = userLocation.rgcData.locationDescribe;
                 NSString* streetNumber = userLocation.rgcData.streetNumber;
                 NSString* adCode = userLocation.rgcData.adCode;
+		NSString* addr = nil;
+                if(userLocation.rgcData.poiList && userLocation.rgcData.poiList.count > 0){
+                    addr = userLocation.rgcData.poiList[0].addr;
+                }
                 
                 [_data setValue:countryCode forKey:@"countryCode"];
                 [_data setValue:country forKey:@"country"];
@@ -73,8 +77,9 @@
                 [_data setValue:city forKey:@"city"];
                 [_data setValue:district forKey:@"district"];
                 [_data setValue:street forKey:@"street"];
-                [_data setValue:streetNumber forKey:@"street"];
+                [_data setValue:streetNumber forKey:@"streetNumber"];
                 [_data setValue:province forKey:@"province"];
+		[_data setValue:addr forKey:@"addr"];
                 [_data setValue:adCode forKey:@"adCode"];
                 [_data setValue:locationDescribe forKey:@"locationDescribe"];
             }
